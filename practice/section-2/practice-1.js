@@ -1,5 +1,14 @@
 'use strict';
 
 function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+  let hash = {};
+
+  collection.forEach(element => {
+    let target = hash[element];
+    hash = { ...hash };
+    const nextCount = target ? target.count + 1 : 1;
+    hash[element] = { key: element, count: nextCount }
+  });
+
+  return Object.values(hash);
 }
