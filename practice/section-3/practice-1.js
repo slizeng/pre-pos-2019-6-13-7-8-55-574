@@ -1,5 +1,10 @@
 'use strict';
 
 function createUpdatedCollection(collectionA, objectB) {
-  return '实现练习要求，并改写该行代码。';
+  const shouldMinus = key => objectB.value.includes(key);
+
+  return collectionA.map(({ count, key }) => ({
+    key,
+    count: shouldMinus(key) ? count - 1 : count
+  }));
 }
